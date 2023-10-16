@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Deligence - Login</title>
+
+    <!-- Styles -->
+    <link href="{{ url_for('static', filename='css/lib/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/themify-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/helper.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/styles.min.css') }}" rel="stylesheet" />
+
+</head>
+<body class="body-login">
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card-body">
+                    <div class="card-badge" id="login-logo">
+                        <img src="{{ url_for('static', filename='images/logo-250.png') }}" style="width: 100%">
+                    </div>
+
+                    <div class="login-form">
+                        <form class="form-horizontal" id="registerForm" action='/user/login' method="post">
+
+                            <!-- 폼 속성
+                            form-group has-success
+                            form-group has-warning
+                            form-group has-error
+
+                            form-group has-success has-feedback
+                            form-group has-error has-feedback
+                            form-group has-warning has-feedback
+                            -->
+                            {{ form.csrf_token }}
+                            {% include "form_errors.html" %}
+
+                            <div class="form-group">
+                                <div class="input_row">
+                                    <label for="username"><i class="ti-user"></i><strong> 아이디</strong></label>
+                                <input type="text" name="username" id="username" value="{{ form.username.data or '' }}" class="form-control" placeholder="ID">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input_row">
+                                <label for="password"><i class="ti-lock"></i><strong> 비밀번호</strong></label>
+                                <input type="password" name="password" id="password" value="{{ form.password.data or '' }}" class="form-control" placeholder="PASSWORD">
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 로그인 상태 유지
+                                </label>
+                                <label class="pull-right">
+
+                                    <!--비밀 번호 찾기 /링크 없음-->
+                                    <a href="#">비밀번호를 잊으셨나요?</a>
+                                </label>
+
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30 submitBtn">로그인</button>
+
+                            <!--<div class="social-login-content">
+                                <div class="social-button">
+                                    <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i>Sign in with facebook</button>
+                                    <button type="button" class="btn btn-primary bg-twitter btn-flat btn-addon m-t-10"><i class="ti-twitter"></i>Sign in with twitter</button>
+                                </div>
+                            </div>-->
+                            <div class="register-link m-t-auto text-center">
+                                <span>계정이 아직 없나요?<a href="{{ url_for('user.signup') }}">  회원가입 하기</a></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

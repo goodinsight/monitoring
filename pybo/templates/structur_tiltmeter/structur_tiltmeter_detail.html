@@ -1,0 +1,58 @@
+<head>
+    <title>Structur_tiltmeter Detail</title>
+</head>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Structur_tiltmeter Data</h1>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">opdatetime</th>
+                <th scope="col">tilt_01_x</th>
+                <th scope="col">tilt_01_y</th>
+                <th scope="col">tilt_02_x</th>
+                <th scope="col">tilt_02_y</th>
+                <th scope="col">tilt_03_x</th>
+                <th scope="col">tilt_03_y</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ structur_tiltmeter.opdatetime }}</th>
+                <td>{{ structur_tiltmeter.tilt_01_x }}</td>
+                <td>{{ structur_tiltmeter.tilt_01_y }}</td>
+                <td>{{ structur_tiltmeter.tilt_02_x }}</td>
+                <td>{{ structur_tiltmeter.tilt_02_y }}</td>
+                <td>{{ structur_tiltmeter.tilt_03_x }}</td>
+                <td>{{ structur_tiltmeter.tilt_03_y }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">tilt_04_x</th>
+                <th scope="col">tilt_04_y</th>
+                <th scope="col">tilt_05_x</th>
+                <th scope="col">tilt_05_y</th>
+                <th scope="col">tilt_06_x</th>
+                <th scope="col">tilt_06_y</th>
+                <th scope="col">tilt_07_x</th>
+                <th scope="col">tilt_07_y</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ structur_tiltmeter.tilt_04_x }}</th>
+                <td>{{ structur_tiltmeter.tilt_04_y }}</td>
+                <td>{{ structur_tiltmeter.tilt_05_x }}</td>
+                <td>{{ structur_tiltmeter.tilt_05_y }}</td>
+                <td>{{ structur_tiltmeter.tilt_06_x }}</td>
+                <td>{{ structur_tiltmeter.tilt_06_y }}</td>
+                <td>{{ structur_tiltmeter.tilt_07_x }}</td>
+                <td>{{ structur_tiltmeter.tilt_07_y }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="@{/assets/favicon.ico}" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Deligence - Join</title>
+
+    <!-- Styles -->
+    <link href="{{ url_for('static', filename='css/lib/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/themify-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/lib/helper.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/styles.min.css') }}" rel="stylesheet" />
+
+</head>
+<body class="body-login">
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                <div class="card">
+                    <!-- 타이틀 -->
+                    <div class="card-title">
+                        <div class="card-badge">
+                            <img src="{{ url_for('static', filename='images/color_logo_250_60.png') }}" style="width: 250px">
+                            <h4><strong>회원가입</strong>(정보입력)</h4>
+                        </div>
+                    </div>
+                    <!-- 회원 가입 폼 -->
+                    <div class="card-body">
+                        <div class="login-content">
+                            <div class="login-form">
+                                <form class="form-horizontal" id="registerForm" action="/user/signup" method="post">
+                                    {{ form.csrf_token }}
+                                    {%  include "form_errors.html" %}
+                                    <hr>
+                                    <div class="row">
+                                        <label for="username" class="col-sm-3 control-label"><strong>아이디</strong></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="username" id="username" class="form-control" value="{{ form.username.data or '' }}" placeholder="아이디를 입력 해주세요">
+                                        </div>
+
+                                        <label for="password1" class="col-sm-3 control-label"><strong>비밀번호</strong></label>
+                                        <div class="col-sm-9">
+                                            <input type="password" name="password1" id="password1" value="{{ form.password1.data or '' }}" class="form-control" placeholder="비밀번호를 입력 해주세요">
+
+                                        </div>
+
+                                        <label for="password2" class="col-sm-3 control-label"><strong>비밀번호 확인</strong></label>
+                                        <div class="col-sm-9">
+                                            <input type="password" name="password2" id="password2" value="{{ form.password2.data or '' }}" class="form-control" placeholder="비밀번호를 입력 해주세요">
+
+                                        </div>
+
+                                        <label class="col-sm-3 control-label"><strong>이메일</strong></label>
+                                        <div class="col-sm-9">
+                                            <input type="email" name="email" id="email" class="form-control" value="{{ form.email.data or ''}}" placeholder="이메일을 입력 해주세요">
+                                        </div>
+
+                                    </div> <!--개인정보 영역 끝-->
+                                    <hr>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 개인정보 이용 약관을 정독하였으며 이에 동의합니다.
+                                        </label>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary btn-flat submitBtn">
+                                        등록하기
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary btn-flat m-b-30 m-t-30">초기화</button>
+
+
+                                </form>
+                            </div> <!-- end card body -->
+                        </div> <!-- end card -->
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div>
+    </div> <!-- end row -->
+</div>
+</body>
+</html>
